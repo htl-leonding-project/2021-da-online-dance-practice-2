@@ -1,0 +1,33 @@
+<nav>
+  <ul>
+    <li><a routerLink="/level-wrapper" routerLinkActive="active">Level</a></li>
+    <li><a routerLink="/course-wrapper" routerLinkActive="active">Course</a></li>
+    <li><a routerLink="/content-component" routerLinkActive="active">Content</a></li>
+  </ul>
+</nav>
+
+<h1>Dance Practice App</h1>
+
+<router-outlet></router-outlet>
+
+<div *ngFor="let file of files">
+<app-audio-input *ngIf="file.contentType == 'AUDIO'" [audio]="file.id"></app-audio-input>
+</div>
+
+<div *ngFor="let file of files">
+  <app-video-input *ngIf="file.contentType == 'VIDEO'" [video]="file.id"></app-video-input>
+</div>
+<p *ngFor="let file of files">{{file|json}}</p>
+
+<!--file upload-->
+<input type="file" class="file-input"(change)="onFileSelected($event)" #fileUpload>
+
+<div class="file-upload">
+
+  {{fileName || "No file uploaded yet."}}
+
+  <button mat-mini-fab color="primary" class="upload-btn" (click)="fileUpload.click()">
+    upload
+  </button>
+</div>
+

@@ -13,7 +13,7 @@
     <bytecodeTargetLevel>
       <module name="distribution" target="17" />
       <module name="leocloud-demo-app" target="17" />
-      <module name="leocloud-quarkus" target="17" />
+      <module name="leocloud-quarkus" target="11" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">

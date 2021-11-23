@@ -10,8 +10,7 @@ services:
     ports:
       - 5432:5432
     volumes:
-      - ./db-postgres/db:/var/lib/postgresql/data
-      - ./db-postgres/import:/import
+      - database:/var/lib/postgresql/data
     healthcheck:
       test: [ "CMD-SHELL", "pg_isready -U postgres" ]
       interval: 5s
@@ -40,6 +39,8 @@ services:
         max_attempts: 3
     ports:
       - 4000:80
+    volumes:
+      - /opt/html:/usr/share/nginx/html
     depends_on:
       - appsrv
 volumes:

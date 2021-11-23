@@ -4,8 +4,7 @@
 name: build and deploy
 
 on:
-  push:
-    branches: [ master ]
+
 
   workflow_dispatch:
     inputs:
@@ -160,6 +159,15 @@ jobs:
         user: ${{ secrets.SERVER_USER }}
         server: ${{ secrets.SERVER }}
         alias: server
+
+#    - name: install ssh-key
+#      uses: webfactory/ssh-agent@v0.5.3
+#      with:
+#        ssh-private-key: ${{ secrets.SERVER_SSH_PRIVATE_KEY }}
+#
+#    - name: create .ssh/known_hosts
+#      run: |
+#        ssh-keyscan -H -t rsa -v ${{ secrets.SERVER_IP }}  >> ~/.ssh/known_hosts
 
     - name: convert github repository name to lowercase
       run: echo "IMAGE_REPOSITORY=$(echo ${{ github.repository }} | tr '[:upper:]' '[:lower:]')" >> $GITHUB_ENV

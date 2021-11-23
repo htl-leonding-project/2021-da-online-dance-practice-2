@@ -11,15 +11,14 @@ services:
     ports:
       - 5432:5432
     volumes:
-      - ./db-postgres/db:/var/lib/postgresql/data
-      - ./db-postgres/import:/import
+      - database:/var/lib/postgresql/data
     healthcheck:
       test: [ "CMD-SHELL", "pg_isready -U postgres" ]
       interval: 5s
       timeout: 5s
       retries: 5
   appsrv:
-    image: ghcr.io/mandelrosaliejanina/mealcounter-reload-appsrv:latest
+    image: ghcr.io/mandelrosaliejanina/2021-da-online-dance-practice-2-appsrv:latest
     deploy:
       restart_policy:
         condition: on-failure
@@ -31,14 +30,17 @@ services:
     depends_on:
       - db
   nginx:
-    image: ghcr.io/mandelrosaliejanina/mealcounter-reload-nginx:latest
+    image: ghcr.io/mandelrosaliejanina/2021-da-online-dance-practice-2-nginx:latest
     deploy:
       restart_policy:
         condition: on-failure
         max_attempts: 3
     ports:
       - 80:80
+    volumes:
+      - /opt/html:/usr/share/nginx/html
     depends_on:
       - appsrv
 volumes:
   database:
+
