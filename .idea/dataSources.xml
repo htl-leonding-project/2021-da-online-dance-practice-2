@@ -8,7 +8,7 @@
       <jdbc-url>jdbc:postgresql://localhost:5432/db</jdbc-url>
       <working-dir>$ProjectFileDir$</working-dir>
     </data-source>
-    <data-source source="LOCAL" name="oravm-mandel" uuid="5a0a3ee5-ff99-491f-a595-1d28dafbf00c">
+    <data-source source="LOCAL" name="oravm-dance" uuid="5a0a3ee5-ff99-491f-a595-1d28dafbf00c">
       <driver-ref>postgresql</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>org.postgresql.Driver</jdbc-driver>

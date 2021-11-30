@@ -20,7 +20,7 @@ The following services are deployed on the production server:
 - [mysql](https://www.mysql.com/) Database Server
 - a small demo website written in typescript compiled with [webpack](https://webpack.js.org/).
 
-nginx is configured to be a reverse proxy for the Application Server, so that there is no [CORS](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS) issue when deploying javascript applications. Additionally nginx also serves the [web page](./www/readme.md).
+nginx is configured to be a reverse proxy for the Application Server, so that there is no [CORS](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS) issue when deploying javascript applications. Additionally nginx also serves the [web page](www2/readme.md).
 
 ## Preparation of your repository
 

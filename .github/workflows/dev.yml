@@ -58,8 +58,20 @@ jobs:
       working-directory: www
 
     - name: build web application
-      run: npm run build --base="/"
+      run: npm run build
       working-directory: www
+
+    - name: build tar file
+      run:  tar -czf onlinedance.tgz untitled/
+      working-directory: dist
+
+    - name: copy tar to vm
+      run:  scp onlinedance.tgz ${{ secrets.SERVER }}
+      working-directory: dist
+
+    - name: copy tar to /opt/html
+      run: ssh ${{ secrets.SERVER }} "sudo tar -C /opt/html -xzf onlinedance.tgz"
+      working-directory: dist
 
     - name: deploy to distribution folder
       run: |
@@ -155,4 +167,3 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: echo "done"
-     

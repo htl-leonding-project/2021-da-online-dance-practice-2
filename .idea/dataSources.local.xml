@@ -16,9 +16,19 @@
         </introspection-scope>
       </schema-mapping>
     </data-source>
-    <data-source name="oravm-mandel" uuid="5a0a3ee5-ff99-491f-a595-1d28dafbf00c">
+    <data-source name="oravm-dance" uuid="5a0a3ee5-ff99-491f-a595-1d28dafbf00c">
       <database-info product="" version="" jdbc-version="" driver-name="" driver-version="" dbms="POSTGRES" exact-version="0" />
-      <schema-mapping />
+      <schema-mapping>
+        <introspection-scope>
+          <node kind="database" negative="1">
+            <node kind="schema" negative="1" />
+          </node>
+        </introspection-scope>
+      </schema-mapping>
+      <ssh-properties>
+        <enabled>true</enabled>
+        <ssh-config-id>64559192-f2e9-4949-9be4-6cb851fb966b</ssh-config-id>
+      </ssh-properties>
     </data-source>
   </component>
 </project>
